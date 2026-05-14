@@ -11,7 +11,7 @@ jobs:
   validate-bangs-json:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Validate JSON
         uses: walbo/validate-json@v1.1.0
         with:
@@ -40,7 +40,7 @@ jobs:
   run-rspec-tests:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
