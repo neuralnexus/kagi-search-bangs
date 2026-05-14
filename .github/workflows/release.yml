@@ -43,4 +43,4 @@ jobs:
           release_name: ${{ env.CURRENT_DATE }}
           body: ${{ env.RELEASE_NOTES }}
           draft: false
-          prerelease: false
+          prerelease: false\n
