@@ -9,7 +9,7 @@ on:
 name: Validate bangs.json
 jobs:
   validate-bangs-json:
-    runs-on: ubuntu-latest
+    runs-on: ${{ fromJSON(((github.event_name == 'push' || github.event_name == 'schedule' || github.event_name == 'workflow_dispatch') && github.ref == format('refs/heads/{0}', github.event.repository.default_branch) && vars.NEXUS_RUNS_ON_LINUX) || '["ubuntu-26.04"]') }}
     steps:
       - uses: actions/checkout@v4
       - name: Validate JSON
@@ -38,7 +38,7 @@ jobs:
           # optional, default: true
           allow-union-types: true
   run-rspec-tests:
-    runs-on: ubuntu-latest
+    runs-on: ${{ fromJSON(((github.event_name == 'push' || github.event_name == 'schedule' || github.event_name == 'workflow_dispatch') && github.ref == format('refs/heads/{0}', github.event.repository.default_branch) && vars.NEXUS_RUNS_ON_LINUX) || '["ubuntu-26.04"]') }}
     steps:
       - uses: actions/checkout@v4
       - name: Set up Ruby
